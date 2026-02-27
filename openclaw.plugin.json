@@ -1,0 +1,86 @@
+{
+  "id": "air-trust",
+  "name": "AIR Trust — EU AI Act Compliance Layer",
+  "description": "Tamper-evident audit trails, consent gating, data tokenization, and prompt injection detection for OpenClaw agents. The only EU AI Act compliance plugin for autonomous AI agents.",
+  "version": "0.2.0",
+  "author": "AIR Blackbox <hello@airblackbox.ai>",
+  "homepage": "https://airblackbox.ai",
+  "repository": "https://github.com/airblackbox/openclaw-air-trust",
+  "license": "Apache-2.0",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "default": true
+      },
+      "gatewayUrl": {
+        "type": "string"
+      },
+      "gatewayKey": {
+        "type": "string"
+      },
+      "consentGateEnabled": {
+        "type": "boolean",
+        "default": true
+      },
+      "consentAlwaysRequire": {
+        "type": "string",
+        "default": "exec,spawn,shell,deploy"
+      },
+      "consentRiskThreshold": {
+        "type": "string",
+        "enum": ["critical", "high", "medium", "low"],
+        "default": "high"
+      },
+      "consentTimeoutMs": {
+        "type": "number",
+        "default": 30000
+      },
+      "injectionEnabled": {
+        "type": "boolean",
+        "default": true
+      },
+      "injectionSensitivity": {
+        "type": "string",
+        "enum": ["low", "medium", "high"],
+        "default": "medium"
+      },
+      "injectionBlockThreshold": {
+        "type": "number",
+        "default": 0.8
+      },
+      "vaultEnabled": {
+        "type": "boolean",
+        "default": true
+      },
+      "auditLocalPath": {
+        "type": "string"
+      }
+    }
+  },
+  "uiHints": {
+    "gatewayUrl": {
+      "label": "AIR Gateway URL",
+      "placeholder": "https://your-gateway.example.com"
+    },
+    "gatewayKey": {
+      "label": "AIR Gateway API Key",
+      "sensitive": true
+    },
+    "consentAlwaysRequire": {
+      "label": "Always Require Consent (comma-separated tools)",
+      "placeholder": "exec,spawn,shell,deploy"
+    },
+    "consentRiskThreshold": {
+      "label": "Consent Risk Threshold"
+    },
+    "injectionSensitivity": {
+      "label": "Injection Detection Sensitivity"
+    },
+    "injectionBlockThreshold": {
+      "label": "Injection Block Threshold (0-1)"
+    }
+  }
+}

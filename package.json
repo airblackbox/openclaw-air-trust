@@ -1,31 +1,58 @@
 {
   "name": "openclaw-air-trust",
-  "version": "0.1.0",
-  "description": "AIR Blackbox trust layer plugin for OpenClaw — tamper-evident audit trails, consent gating, and data tokenization for AI agents",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "version": "0.2.0",
+  "description": "AIR Blackbox trust layer plugin for OpenClaw — EU AI Act compliance with tamper-evident audit trails, consent gating, data tokenization, and prompt injection detection",
+  "main": "dist/plugin.js",
+  "types": "dist/plugin.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/plugin.js",
+      "require": "./dist/plugin.js",
+      "types": "./dist/plugin.d.ts"
+    },
+    "./standalone": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist/",
+    "openclaw.plugin.json",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "jest --coverage",
     "lint": "eslint src/",
     "clean": "rm -rf dist/",
     "prepublishOnly": "npm run build"
-  },
-  "keywords": [
+  },  "keywords": [
     "openclaw",
-    "air",
-    "trust",
-    "audit",
+    "openclaw-plugin",
+    "air-blackbox",
+    "eu-ai-act",
     "compliance",
-    "ai-agents",
+    "audit-trail",
     "tamper-evident",
-    "governance"
+    "consent-gate",
+    "injection-detection",
+    "data-tokenization",
+    "ai-governance",
+    "ai-safety",
+    "trust-layer",
+    "hmac-sha256"
   ],
-  "author": "AIR Blackbox",
+  "author": "AIR Blackbox <hello@airblackbox.ai>",
   "license": "Apache-2.0",
+  "homepage": "https://airblackbox.ai",
   "repository": {
     "type": "git",
-    "url": "https://github.com/airblackbox/trust-openclaw.git"
+    "url": "https://github.com/airblackbox/openclaw-air-trust.git"
+  },
+  "bugs": {
+    "url": "https://github.com/airblackbox/openclaw-air-trust/issues"
   },
   "devDependencies": {
     "@types/jest": "^29.5.0",
